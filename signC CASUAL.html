@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        .bg
+        {
+
+            transition: all 0.50s;
+        }
+        .bg:hover
+        {
+
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body class="">
+   <div id="main" class="p-2 ">            
+                <div class="ms-auto me-auto text-center mb-2">
+                <a class=" bg-dark text-light p-sm-3 btn rounded-3" href="index.html">B R A V O</a>
+                </div>
+                <div class="">
+                    
+                    <div class="bg border-3 border border-dark-subtle rounded-3 ms-auto me-auto pt-3" style="width: 25rem; padding-left: 20px; ">
+                       <p class="" style="font-size: 2rem; font-family:sans-serif;">
+                            Sign in
+                       </p>
+                        <p class="mt-40" style="font-family: sans-serif;">
+                                    Email or Mobile phone number
+                        </p>
+                        <div class="input-group flex-nowrap text-center" style="font-family: sans-serif;">
+                            <div class="">
+                            <input type="email" id="email" class="form-control" style="width: 22rem;" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" required>
+                            <button type="submit" id="submit" class="btn btn-warning mb-2 my-2 " style="font-family: sans-serif; width: 22rem;">S U B M I T </button>   
+                            </div>
+                        </div>
+                        <div  class="text-center pe-4  mb-2 m-1">
+                            <button type="button" id="newacc" class="text-dark-hover btn  btn-outline-info">
+                                CREATE NEW ACCOUNT
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+<script >
+let sub = document.getElementById('submit');
+    sub.addEventListener('click', CHACK);
+    function CHACK(e)
+    {
+        let a =e.currentTarget;
+        let b = a.previousElementSibling; 
+        let nw = document.getElementById('main');
+    
+        console.log(b.value);
+        if(b.value === "patelharshil4636@gmail.com")
+        {
+          
+            window.location.href = "Cpass.html";
+        }
+        else if (b.value == "")
+        {
+            alert("ENTER EMAIL !");
+            document.getElementById("email").placeholder = "ENTER EMAIL !";
+            let a = document.getElementById('submit');
+           
+        }
+        
+        else
+           {
+    
+            alert("NOT FOUND")
+            }
+            
+    }
+    let newacc = document.getElementById('newacc');
+            newacc.addEventListener('click',Newacc);
+            function Newacc(event)
+            {
+                window.location.href = "newacc.php"; 
+            }
+    </script>    
+</body>
+</html>

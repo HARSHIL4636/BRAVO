@@ -1,0 +1,43 @@
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+/* for user info */
+@keyframes U_I_S{
+0%
+{
+   top: -300px; opacity: 0%;
+}
+75%
+{
+top: 50px; opacity: 25%;
+}
+100%
+{
+   top: 9%; opacity: 100%;
+   
+}
+
+}
+/* for usser info */
+@keyframes U_I_N {
+0%
+{
+   top: 9%; opacity: 100%;
+
+}
+75%
+{
+top: 50px; opacity: 50%;
+}
+100%
+{
+top: -300px; opacity:100%;
+
+}
+}
