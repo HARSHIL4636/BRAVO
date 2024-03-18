@@ -168,7 +168,7 @@ while($row = $result->fetch_assoc())
                        
                         <?php }} ?>
                       </div>
-                        <div class="triangle-down " style="position: relative; bottom: 2px;"  ></div>
+                        <div class="triangle-down " onmouseover="playSound();"style="position: relative; bottom: 2px;"  ></div>
 
                         <h6 style="position:relative; bottom: 2.5rem; left: 1.9rem; color:#ccd5ae ; font-size: 12px; ">more</h6>
                         </div>
@@ -288,6 +288,12 @@ console.log(document.getElementsByClassName('CHILD_IMGS')[i].parentElement.nextE
   console.log(mainSrc);
   
  }
+</script>
+<script>
+  function playSound() {
+    var audio = new Audio('sound.mp3');
+    audio.play();
+  }
 </script>
 </body>
 
