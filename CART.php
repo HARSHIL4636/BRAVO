@@ -198,6 +198,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
         unset($_SESSION['email']);
         unset($_SESSION['pass']);   
         unset($_SESSION['cart']);
+        unset($_SESSION['admin']);
         $page=$_POST['PName'];
 
         echo 

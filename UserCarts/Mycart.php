@@ -139,25 +139,23 @@ $id= $row['ITEM_ID'];
             while($rows = mysqli_fetch_array($results))
             {
 ?>
-            <form action="Product_info.php" method="get">
-            <input type="hidden" name="COLOR" value="<?php echo $color; ?>">
-            <input type="hidden" name="FName" value="<?php echo $row['F_NAME']; ?>">                
-            <input type="hidden" name="LName" value="<?php echo $row['L_NAME']; ?>">                
-            <input type="hidden" name="ADD" value="<?php echo $row['ADD']; ?>">
-            <input type="hidden" name="COUNTRY" value="<?php echo $row['COUNTRY']; ?>">               
-            <input type="hidden" name="CONTACT" value="<?php echo $row['CONTACT']; ?>">
-            <input type="hidden" name="IID" value="<?php echo $row['ITEM_ID']; ?>">
-            <input type="hidden" name="IName" value="<?php echo $row['ITEM_NAME']; ?>">
-            <input type="hidden" name="TYPE" value="<?php echo $row['TYPE']; ?>">
-            <input type="hidden" name="QON" value="<?php echo $row['QON']; ?>">
-            <input type="hidden" name="PRICE" value="<?php echo $row['ITEM_NAME']; ?>">
-            <input type="hidden" name="SIZE" value="<?php echo $row['SIZE']; ?>">
-            <input type="hidden" name="IMG" value="<?php echo $rows['I_ADD']; ?>">
+           
 
 
+    <?php 
+    }
+}
+else
+{
+    $results=$con->query("SELECT * FROM formal_shoes WHERE ID='$id'");
+    if ($results->num_rows > 0)
+    {
+        while($rows = mysqli_fetch_array($results))
+        { ?>
 
-            <div class="product-card" style="background-color: #ccd5ae;">
-            <img src="../<?php echo $rows['I_ADD'];?>" style=" height:fit-content; object-fit: contain; " alt="Product Image" class="product-img">
+
+<div class="product-card" style="background-color: #ccd5ae;">
+            <img src="<?php echo $rows['I_ADD'];?>" style=" height:fit-content; object-fit: contain; " alt="Product Image" class="product-img">
             <div class="product-info">
                 <div class="product-name" style="width: fit-content;"><?php echo $row['ITEM_NAME']; ?></div>
                 <div class="product-price fw-bolder" style="width: fit-content;">&#8377;<span class="Item_price"><?php echo $row['PRICE'];?></span>/-</div>
@@ -177,11 +175,12 @@ $id= $row['ITEM_ID'];
 
         </div>
         </form> 
-
-    <?php 
+      <?php  }
     }
+
 }
     }
+    
 ?>
         
          

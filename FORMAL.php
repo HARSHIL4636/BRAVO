@@ -26,10 +26,6 @@ include('Helpers/ServerConnect.php');
     background-color: #e9edc9 !important;
     }
 
-    .box1 {
-        /* border: 2px solid black; */
-
-    }
     
     @keyframes INFO {
       0% { opacity: 0%;  }
@@ -50,9 +46,7 @@ include('Helpers/ServerConnect.php');
     {
       animation: INFO 1s 0.5s  ease normal forwards;
     }
-    #informations>li{
-      /* background-color: #335c67; */
-    }
+ 
 
     .PARTS
 {
@@ -64,10 +58,7 @@ include('Helpers/ServerConnect.php');
 
   width: 40rem !important;    
 }
-.CARD
-{
-  
-}
+
 
     .triangle-down {
 	width: 0;
@@ -75,7 +66,7 @@ include('Helpers/ServerConnect.php');
   border-top-left-radius:2px ;
   border-top-right-radius:2px ;
   
-      margin-left: ;
+
 	border-left: 45px solid transparent;
 	border-right: 45px solid transparent;
 	border-top: 50px solid #403d39;
@@ -110,13 +101,10 @@ include('Helpers/ServerConnect.php');
 .CHILD_IMGS img:hover
 {
   margin-top: 2rem !important ;
-  transform: scale(140%);
+  transform: scale(130%);
 }
 @media only screen and (max-width: 450px) {
-  .PARTS {
-  
-    /* transform: scale(50%)  !important ;  */
-  }
+ 
 }
 #informations ul>li
 {
@@ -153,7 +141,7 @@ while($row = $result->fetch_assoc())
 {
        
        ?> 
-       <div class="col pb-4" style="" >
+       <div class="col pb-4"  >
     
        <div class="p-1 mb-5 PARTS " style="  border:#335c67 solid 2px ;  box-shadow: 0 0 10px rgba(100, 100, 100, 1); border-radius: 10px; background-color: #403d39; width: 420px;">
                 <div class="d-flex" style="width:fit-content ;">
@@ -162,7 +150,7 @@ while($row = $result->fetch_assoc())
                         style="  border:#dee2e6 solid 2px; border-radius:10px ; background:white ; height: 25rem; width: 400px;">
                         <div class="ShoeChild" style="cursor: pointer;  width: fit-content; position:absolute;">
                         <div class="CHILD_IMGS" style="overflow: hidden; height: 0px; background: #403d39; border-radius: 2px  ; width: 90px; position:relative; top: -2px;">
-                        <img src="<?php echo $row['I_ADD']; ?>"  class="d-block CHILDIMG " style="aspect-ratio: 3/5;  margin-inline-start: auto; margin-inline-end: auto;  width: 50px;" alt="">
+                        <img src="<?php echo $row['I_ADD'];?>"  class="d-block " style="aspect-ratio: 6/8;  border-radius: 10px;  padding: 4px; margin-inline-start: auto; margin-inline-end: auto;  width: 65px;" alt="">
                         
                         <?php 
                         $ID=$row['ID'];
@@ -174,9 +162,10 @@ while($row = $result->fetch_assoc())
                             {
 
                         ?>
-                        <img src="<?php echo $rows['I_ADD']; ?>" name="COLORIMG"  class="d-block CHILDIMG " style="aspect-ratio: 3/5;   margin-inline-start: auto; margin-inline-end: auto;  width: 50px;" alt="">
+                      
+                        <img src="<?php $photo=$rows['I_ADD']; echo $rows['I_ADD']; ?>" name="COLORIMG" onmouseover="SendImg('<?php echo $photo;?>',this);"  class="d-block CHILDIMG " style=" border-radius: 10px; padding: 2px; margin-top:5px; aspect-ratio:  6/8 ;   margin-inline-start: auto; margin-inline-end: auto;  width: 65px;" alt="">
                         <input type="hidden" name="color" value="<?php echo $rows['COLOR'];?>" class="COLOR">
-
+                       
                         <?php }} ?>
                       </div>
                         <div class="triangle-down " style="position: relative; bottom: 2px;"  ></div>
@@ -187,7 +176,7 @@ while($row = $result->fetch_assoc())
                       </div>
 
                     <div name="informations" id="informations" style="position: relative;   display: none; left: 1rem; opacity: 0%; height: fit-content; width:fit-content ;"  class=" box1 p-1 m-2">
-                        <ul class="list-group rounded-3 " style="">
+                        <ul class="list-group rounded-3 " >
                             <li id="ProductInfo " class="border-0 list-group-item">
                             NAME : <span><?php echo $row['NAME']; ?></span>
                             </li>
@@ -263,35 +252,42 @@ while($row = $result->fetch_assoc())
 <script>
   let Cimg=document.getElementsByClassName("CHILDIMG");
   let Color=document.getElementsByName('color');
+  let ChildImg=document.getElementsByClassName('CHILD_IMGS');
 
-
+console.log( Cimg.length );
   for (let i = 0; i < Cimg.length; i++) {
     // console.log(Cimg[j].parentElement.parentElement.nextElementSibling.src); 
     
-    Cimg[i].addEventListener("click",()=>{
+    Cimg[i].addEventListener("mouseover",()=>{
+        
       Cimg[i].parentElement.parentElement.nextElementSibling.src=Cimg[i].src;
-      // console.log(Cimg[i].nextElementSibling.value);
-      Cimg[i].parentElement.parentElement.parentElement.nextElementSibling.children[1].children[1].value=Cimg[i].nextElementSibling.value;
-      console.log(Cimg[i].parentElement.parentElement.parentElement.nextElementSibling.children[1].children[1].value)
+      console.assert(Cimg[i].src)
+      document.getElementsByName("COLOR")[0].value=Color[i].value;
+      console.log(document.getElementsByName("COLOR")[0]);
 
     });
-    
-    
-    
+    //  console.log(ChildImg[i].children[0]);
+    ChildImg[i].children[0].addEventListener('mouseover', ()=>{
+
+// 
+console.log();
+document.getElementsByClassName('CHILD_IMGS')[i].parentElement.nextElementSibling.src=document.getElementsByClassName('CHILD_IMGS')[i].children[0].src;
+console.log(document.getElementsByClassName('CHILD_IMGS')[i].parentElement.nextElementSibling.src);    
+}
+    );
   }
 </script>
-<!-- for ENTER COLOR VALUE IN INPUT  -->
+
 <script>
-  // let ColorFetchImg=document.getElementsByName('COLORIMG');
-  // console.log(ColorFetchImg.length);
-  // for (let l = 0; l < ColorFetchImg.length; l++) {
-  //   ColorFetchImg[l].addEventListener("click", ()=>{
-  //       document.getElementsByName('COLOR')[l].value=Color[l].value;
-  //       console.log(document.getElementsByName('COLOR')[l].value);
-  //   });
-  //   // const element = array[l];
-  // }
-  // console.log(Color
+ function SendImg(e,element)
+ {
+
+  let mainSrc=  element.parentElement.parentElement.nextElementSibling;
+  mainSrc.src=e;
+  // console.log(element.parentElement.parentElement.nextElementSibling.src=);
+  console.log(mainSrc);
+  
+ }
 </script>
 </body>
 

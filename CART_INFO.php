@@ -1,6 +1,7 @@
 
 <?php 
 include('CONN.php');
+
 // truncate {
 $TTable="TRUNCATE TABLE add_cart_info";
 if(basename(__FILE__) != 'CART_INFO.php') {
@@ -75,7 +76,8 @@ foreach($_POST AS $key => $value)
     $con->query("UPDATE add_cart_info SET COLOR='NAVY'");
 
   }
-
+global $type;
+global $FC;
 global  $COLOR;
 $checkRecord="SELECT * FROM add_cart_info";
 $CHECK=$con->query($checkRecord);

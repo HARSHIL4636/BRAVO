@@ -1,5 +1,5 @@
 <div>
-   
+
     <?php
   $fetchDATA="SELECT * FROM add_cart_info ";
   $result = $con->query($fetchDATA);
@@ -8,7 +8,7 @@
       $NAME=$s['NAME'];
       $id=$s['ID'];
       $C=$s['COLOR'];
-      
+      $type;
       ?>
       
   
@@ -28,7 +28,7 @@
   
   <div class="cart" style=' font-family: "Alegreya SC", serif;
   font-weight: 400;
-  font-style: normal;'>   <?php echo $ro['TYPE']; ?>
+  font-style: normal;'>   <?php $type=$ro['TYPE']; echo $ro['TYPE']; ?>
 
 </div>
 
@@ -60,7 +60,7 @@
 else
 {
   // if(isset())
-  $ImgFetch="SELECT * FROM formal_shoes,child_formal WHERE child_formal.ID=formal_shoes.ID AND child_formal.ID='$id' ";
+  $ImgFetch="SELECT * FROM formal_shoes WHERE  ID='$id'";
   $Iresult=$con->query($ImgFetch);
   if ($Iresult->num_rows >0)
   {
@@ -82,7 +82,7 @@ else
 <div class="ms-3 fw-bolder fs-6" style='font-family: "Agdasima", sans-serif;
   font-weight: 400;letter-spacing: 1px;
   font-style: normal;'> <?php echo $s['ID']; ?></div>
-<div class="  " style=' '>
+<div class="  " >
   <span><span class="float-end me-1">/-</span><span class="fs-6 float-end" id='PRICE1' ><?php echo $s['PRICE']; ?></span></span>
   </div>
 </div>

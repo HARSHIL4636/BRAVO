@@ -36,6 +36,35 @@ if($results->num_rows == 0)
                 // echo $awlbl;
             }
         }
+        else
+        {
+            $FC;
+            if($item['TYPE']=="FORMAL" && $IColor=="DEFAULT")
+            {
+                $ab="SELECT * FROM formal_shoes WHERE ID='$IID'";
+                $thisresults=$con->query($ab);
+                if($thisresults->num_rows>0)
+                {
+                    while($a=$thisresults->fetch_assoc())
+                    {
+                        $FC=$a['COLOR'];
+                    }
+                }
+                
+                $f="SELECT AWLBL FROM shoe_info WHERE ID='$IID' AND COLOR='$FC'"; 
+                $thisresults=$con->query($f);
+                if($thisresults->num_rows>0)
+                {
+                    while($row=$thisresults->fetch_assoc()){ 
+                        $awlbl=(int)$row["AWLBL"];
+                     } ?>
+                <?php
+                }
+            }
+
+        }
+
+        
 
 
         $qons=$awlbl-(int)($IQon);

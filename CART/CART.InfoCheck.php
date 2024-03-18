@@ -439,6 +439,20 @@ html {
             
                 <img src="<?php echo "../".$IAdd['I_ADD']; ?>" style="background-size:cover;" alt="Item 1">
             <?php }}
+            else
+            {
+              $Iresult=$con->query("SELECT * FROM formal_shoes WHERE ID='$id'");
+           if ($Iresult->num_rows > 0)
+           {
+            while($IAdd=$Iresult->fetch_assoc())
+            {
+              ?>
+                <img src="<?php echo $IAdd['I_ADD']; ?>" style="background-size:cover;" alt="Item 1">
+
+              <?php
+            }
+          }
+        }
 ?>
                 <div class="item-details">
                     <p><strong>Name:</strong> <?php echo $item['NAME'];?></p>

@@ -35,6 +35,18 @@
 <form action="CART_INFO.php" method="post">
 <ul class="list-group fs-5 me-3 list-group-horizontal" id="list2">
 <?php 
+if($C=="DEFAULT" && $type=="FORMAL")
+{
+  $result=$con->query("SELECT * FROM formal_shoes WHERE ID='$id'");
+  if($result->num_rows>0)
+{
+  while($a=$result->fetch_assoc())
+  {
+    $FC=$a['COLOR'];
+    $C=$a['COLOR'];
+  }
+}
+}
   $sizes="SELECT * FROM size_info WHERE ID='$id' AND COLOR='$C' AND SIZE='6'";
   $SizeResult=$con->query($sizes);
   if($SizeResult->num_rows>0)
@@ -136,14 +148,29 @@
 </form>
 
  <?php
+ $CLR;
 $CheckCartedSize="SELECT * FROM add_cart_info";
 $RECORD=$con->query($CheckCartedSize);
 if ($RECORD->num_rows>0)
 {
+  
 while ($R=$RECORD->fetch_assoc()) {
 $sizE=$R['SIZE'];
 $ID=$R['ID'];
 $CLR=$R['COLOR'];
+if($type=="FORMAL")
+{
+  $result=$con->query("SELECT * FROM formal_shoes WHERE ID='$id'");
+  if($result->num_rows>0)
+{
+  while($a=$result->fetch_assoc())
+  {
+    $FC=$a['COLOR'];
+    $CLR=$a['COLOR'];
+  }
+}
+ 
+}
 }
 }
 $CheckAwlbl="SELECT * FROM size_info WHERE SIZE='$sizE' AND ID='$ID' AND COLOR='$CLR'";
@@ -152,11 +179,13 @@ if ($result->num_rows>0)
 {
   while($ROW=$result->fetch_assoc())
   {
+    
     $AWLBL=$ROW['AWLBL'];
     
 
   }
-}?>
+}
+?>
 
 
 </div>

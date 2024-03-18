@@ -15,10 +15,7 @@
     background-color: #e9edc9 !important;
     }
 
-    .box1 {
-        /* border: 2px solid black; */
-
-    }
+    
     
     @keyframes INFO {
       0% { opacity: 0%;  }
@@ -39,9 +36,7 @@
     {
       animation: INFO 1s 0.5s  ease normal forwards;
     }
-    #informations>li{
-      /* background-color: #335c67; */
-    }
+ 
 
     .PARTS
 {
@@ -53,10 +48,7 @@
 
   width: 40rem !important;    
 }
-.CARD
-{
-  
-}
+
 
     .triangle-down {
 	width: 0;
@@ -64,7 +56,7 @@
   border-top-left-radius:2px ;
   border-top-right-radius:2px ;
   
-      margin-left: ;
+
 	border-left: 45px solid transparent;
 	border-right: 45px solid transparent;
 	border-top: 50px solid #403d39;
@@ -102,10 +94,7 @@
   transform: scale(140%);
 }
 @media only screen and (max-width: 450px) {
-  .PARTS {
-  
-    /* transform: scale(50%)  !important ;  */
-  }
+
 }
 #informations ul>li
 {
@@ -133,7 +122,7 @@ while($row = $result->fetch_assoc())
 {
        
        ?> 
-       <div class="col pb-4" style="" >
+       <div class="col pb-4"  >
     
        <div class="p-1 mb-5 PARTS " style="  border:#335c67 solid 2px ;  box-shadow: 0 0 10px rgba(100, 100, 100, 1); border-radius: 10px; background-color: #403d39; width: 420px;">
                 <div class="d-flex" style="width:fit-content ;">
@@ -167,7 +156,7 @@ while($row = $result->fetch_assoc())
                       </div>
 
                     <div name="informations" id="informations" style="position: relative;   display: none; left: 1rem; opacity: 0%; height: fit-content; width:fit-content ;"  class=" box1 p-1 m-2">
-                        <ul class="list-group rounded-3 " style="">
+                        <ul class="list-group rounded-3 " >
                             <li id="ProductInfo " class="border-0 list-group-item">
                             NAME : <span><?php echo $row['NAME']; ?></span>
                             </li>
@@ -195,7 +184,7 @@ while($row = $result->fetch_assoc())
                             hello
                             </li> -->
                         </ul>
-                        <form action="CART_INFO.php" method="post">
+                        <form action="../CART_INFO.php" method="post">
                           <input type="hidden" name="TYPE" value='<?php echo $row['TYPE']; ?>'>
                                  <input type="hidden" name="COLOR" value=''>
                                  <input type="hidden" name="ID" value='<?php echo $row['ID']; ?>'>
