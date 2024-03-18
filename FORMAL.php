@@ -150,7 +150,7 @@ while($row = $result->fetch_assoc())
                         style="  border:#dee2e6 solid 2px; border-radius:10px ; background:white ; height: 25rem; width: 400px;">
                         <div class="ShoeChild" style="cursor: pointer;  width: fit-content; position:absolute;">
                         <div class="CHILD_IMGS" style="overflow: hidden; height: 0px; background: #403d39; border-radius: 2px  ; width: 90px; position:relative; top: -2px;">
-                        <img src="<?php echo $row['I_ADD'];?>"  class="d-block " style="aspect-ratio: 6/8;  border-radius: 10px;  padding: 4px; margin-inline-start: auto; margin-inline-end: auto;  width: 65px;" alt="">
+                        <img src="<?php echo $row['I_ADD'];?>" onmouseover="popAudio();" class="d-block " style="aspect-ratio: 6/8;  border-radius: 10px;  padding: 4px; margin-inline-start: auto; margin-inline-end: auto;  width: 65px;" alt="">
                         
                         <?php 
                         $ID=$row['ID'];
@@ -286,13 +286,19 @@ console.log(document.getElementsByClassName('CHILD_IMGS')[i].parentElement.nextE
   mainSrc.src=e;
   // console.log(element.parentElement.parentElement.nextElementSibling.src=);
   console.log(mainSrc);
-  
+  let Audioo= new Audio('sounds/pop-39222.mp3');
+  Audioo.play();
  }
 </script>
 <script>
   function playSound() {
-    var audio = new Audio('sound.mp3');
+    var audio = new Audio('sounds/shh.mp3');
     audio.play();
+  }
+  function popAudio() {
+    var PlayAudio = new Audio('sounds/pop-39222.mp3');
+    playSound.play();
+  
   }
 </script>
 </body>
