@@ -329,7 +329,7 @@
             } else
             ?>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="main_Ul">
-                <?php if (basename($_SERVER['PHP_SELF']) == "FORMAL.php") { ?>
+                <?php if (basename($_SERVER['PHP_SELF']) == "FORMAL.php" || basename($_SERVER['PHP_SELF']) == "Formal.php") { ?>
                     <li class="ms-1 nav-link rounded-3"><a class="btn btn-outline-light" id="SNEAKERS" href="CROCS.php"
                             style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"> CROCS</a>
                     </li>
