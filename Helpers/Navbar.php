@@ -551,7 +551,7 @@
 
 
             ?>
-            <div class="card1" style="height: ;">
+            <div class="card1">
 
                 <div class="text-light" style='  font-family: "Cabin", sans-serif;
     font-optical-sizing: auto;
@@ -567,7 +567,7 @@
                         <span name="MAIL BOX" style="width: fit-content;margin-top: 3%;height:fit-content;" class="">
                             <i class="bi bi-envelope "></i> -
                         </span>
-                        <span class=" ms-1 mt-1 " style="">
+                        <span class=" ms-1 mt-1 " >
                             <?php echo $row['EMAIL']; ?>
                             <hr>
                         </span>
