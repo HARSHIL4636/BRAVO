@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+// CHANGE THE
     $servername="localhost";
 $pass="";
 $username="root";
